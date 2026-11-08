@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Канбан-доска SurveyFlow</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
+    h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.03em; }
+    .sub { color: #6b778c; margin-bottom: 22px; font-size: 13px; }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(240px, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+    .column {
+      background: #fff;
+      border: 1px solid #e3e9f2;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 8px 30px rgba(30, 50, 90, 0.06);
+    }
+    .column h2 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .count { color: #6b778c; font-weight: 500; font-size: 12px; }
+    .limit { color: #98a2b3; font-size: 11px; margin-bottom: 10px; }
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e8eef7;
+      border-left: 4px solid #2456d8;
+      border-radius: 11px;
+      padding: 10px 11px;
+      margin-bottom: 9px;
+    }
+    .card.pm { border-left-color: #2456d8; }
+    .card.lead { border-left-color: #16794a; }
+    .card.backend { border-left-color: #b45a00; }
+    .card.analyst { border-left-color: #6d3bbf; }
+    .card.qa { border-left-color: #b08a00; }
+    .card.ai { border-left-color: #172033; }
+    .card strong { display: block; font-size: 12.5px; line-height: 1.3; }
+    .meta { display: flex; justify-content: space-between; gap: 6px; margin-top: 7px; color: #6b778c; font-size: 10.5px; }
+    .tag {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #e8efff;
+      color: #2456d8;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .tag.green { background: #e4f6ec; color: #16794a; }
+    .tag.orange { background: #fff0e0; color: #b45a00; }
+    .tag.purple { background: #f0e9ff; color: #6d3bbf; }
+    .tag.gold { background: #fff6d8; color: #8a6a00; }
+    .tag.dark { background: #e9edf5; color: #172033; }
+    .footer {
+      margin-top: 18px;
+      color: #6b778c;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Канбан-доска SurveyFlow</h1>
+  <div class="sub">Неделя 02–08.11.2026 · правила: карточка начинается с глагола, WIP In Progress — 3 на человека</div>
+
+  <div class="board">
+    <section class="column">
+      <h2>Backlog <span class="count">5</span></h2>
+      <div class="limit">ждёт уточнения или приоритета</div>
+      <div class="card pm"><strong>Уточнить у преподавателя, что значит «снят»</strong><div class="meta"><span class="tag">PM</span><span>W-01</span></div></div>
+      <div class="card pm"><strong>Исправить Google Doc: 9 недель, роли, ФИО, нумерацию WBS</strong><div class="meta"><span class="tag">PM</span><span>W-02</span></div></div>
+      <div class="card pm"><strong>Исправить ТЗ: 500/50, администратор, export, версию</strong><div class="meta"><span class="tag">PM</span><span>W-03</span></div></div>
+      <div class="card pm"><strong>Сравнить MS Project и GitHub Projects + GanttProject</strong><div class="meta"><span class="tag">PM</span><span>W-08</span></div></div>
+      <div class="card analyst"><strong>Провести анализ рынка, конкурентов и killer features</strong><div class="meta"><span class="tag purple">Аналитик</span><span>W-15</span></div></div>
+    </section>
+
+    <section class="column">
+      <h2>To Do <span class="count">12</span></h2>
+      <div class="limit">готово к работе</div>
+      <div class="card pm"><strong>Создать GitHub-репозиторий и залить docs</strong><div class="meta"><span class="tag">PM</span><span>W-04</span></div></div>
+      <div class="card pm"><strong>Сделать диаграмму Ганта в GanttProject</strong><div class="meta"><span class="tag">PM</span><span>W-05</span></div></div>
+      <div class="card pm"><strong>Сделать канбан-доску в GitHub Projects</strong><div class="meta"><span class="tag">PM</span><span>W-06</span></div></div>
+      <div class="card pm"><strong>Переписать WBS с глаголов и добавить матрицу занятости</strong><div class="meta"><span class="tag">PM</span><span>W-07</span></div></div>
+      <div class="card lead"><strong>Проверить HTTPS/шифрование, статистику и фильтры в коде</strong><div class="meta"><span class="tag green">Lead</span><span>W-09</span></div></div>
+      <div class="card lead"><strong>Спроектировать предварительную онлайн-статистику</strong><div class="meta"><span class="tag green">Lead</span><span>W-10</span></div></div>
+      <div class="card lead"><strong>Добавить фильтры вопросов в онлайн-статистику</strong><div class="meta"><span class="tag green">Lead</span><span>W-11</span></div></div>
+      <div class="card backend"><strong>Закоммитить backend авторизации и кабинета</strong><div class="meta"><span class="tag orange">Backend</span><span>W-12</span></div></div>
+      <div class="card lead"><strong>Закоммитить frontend авторизации и кабинета</strong><div class="meta"><span class="tag green">Frontend</span><span>W-13</span></div></div>
+      <div class="card lead"><strong>Настроить CI: сборка и линтер</strong><div class="meta"><span class="tag green">Lead</span><span>W-14</span></div></div>
+      <div class="card qa"><strong>Проверить нагрузку 50 пользователей</strong><div class="meta"><span class="tag gold">QA</span><span>W-16</span></div></div>
+      <div class="card pm"><strong>Обновить README и структуру репозитория</strong><div class="meta"><span class="tag">PM</span><span>W-17</span></div></div>
+    </section>
+
+    <section class="column">
+      <h2>In Progress <span class="count">3</span></h2>
+      <div class="limit">WIP: 3 на человека</div>
+      <div class="card ai"><strong>Собрать Project Hub: Vue + Express</strong><div class="meta"><span class="tag dark">AI</span><span>app</span></div></div>
+      <div class="card ai"><strong>Проверить отчёты и обновить AI_REVIEW.md</strong><div class="meta"><span class="tag dark">AI</span><span>control</span></div></div>
+      <div class="card ai"><strong>Подготовить патчи для статистики и фильтров</strong><div class="meta"><span class="tag dark">AI</span><span>code</span></div></div>
+    </section>
+
+    <section class="column">
+      <h2>Review <span class="count">3</span></h2>
+      <div class="limit">ждёт проверки</div>
+      <div class="card ai"><strong>WBS с глаголами действия</strong><div class="meta"><span class="tag dark">WBS</span><span>37 задач</span></div></div>
+      <div class="card ai"><strong>Матрица занятости по модулям</strong><div class="meta"><span class="tag dark">360 ч</span><span>72×5</span></div></div>
+      <div class="card ai"><strong>Git-гайд и сообщения участникам</strong><div class="meta"><span class="tag dark">Git</span><span>5 ролей</span></div></div>
+    </section>
+
+    <section class="column">
+      <h2>Done <span class="count">5</span></h2>
+      <div class="limit">принято</div>
+      <div class="card lead"><strong>Project Hub MVP</strong><div class="meta"><span class="tag green">app</span><span>готово</span></div></div>
+      <div class="card ai"><strong>AI-оркестратор: 12 проверок</strong><div class="meta"><span class="tag dark">AI</span><span>готово</span></div></div>
+      <div class="card ai"><strong>Код-аудит: HTTPS, статистика, фильтры</strong><div class="meta"><span class="tag dark">audit</span><span>готово</span></div></div>
+      <div class="card ai"><strong>Задачи недели 02–08.11</strong><div class="meta"><span class="tag dark">plan</span><span>17 задач</span></div></div>
+      <div class="card ai"><strong>README и project-management</strong><div class="meta"><span class="tag dark">docs</span><span>готово</span></div></div>
+    </section>
+  </div>
+
+  <div class="footer">
+    <span>Источник: project-management/KANBAN.md · WBS_VERBS.md · WEEK_TASKS.md</span>
+    <span>Сделано для защиты: GitHub Projects + GanttProject</span>
+  </div>
+</body>
+</html>
