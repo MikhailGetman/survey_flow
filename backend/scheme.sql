@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS survey_platform;
+USE survey_platform;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    reset_token VARCHAR(255),
+    reset_token_expires DATETIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
