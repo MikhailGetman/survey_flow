@@ -55,6 +55,19 @@ const router = createRouter({
       component: () => import('@/components/SurveyBuilder.vue'),
       meta: { requiresAuth: true }
     },
+
+        {
+      path: '/survey/:link',
+      name: 'SurveyView',
+      component: () => import('@/views/SurveyView.vue')
+    },
+    
+    {
+      path: '/results/:id',
+      name: 'SurveyResults',
+      component: () => import('@/components/SurveyResults.vue'),
+      meta: { requiresAuth: true }
+    }
   ]
 });
 
