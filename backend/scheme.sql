@@ -49,3 +49,25 @@ CREATE TABLE question_options (
     order_index INT NOT NULL,
     FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE
 );
+
+-- Ответы респондентов
+CREATE TABLE responses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    survey_id INT NOT NULL,
+    respondent_id VARCHAR(255),
+    started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    completed_at TIMESTAMP NULL,
+    FOREIGN KEY (survey_id) REFERENCES surveys(id) ON DELETE CASCADE
+);
+
+-- Детальные ответы
+CREATE TABLE response_details (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    response_id INT NOT NULL,
+    question_id INT NOT NULL,
+    option_id INT NULL,
+    text_answer TEXT,
+    FOREIGN KEY (response_id) REFERENCES responses(id) ON DELETE CASCADE,
+    FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE,
+    FOREIGN KEY (option_id) REFERENCES question_options(id) ON DELETE SET NULL
+);
